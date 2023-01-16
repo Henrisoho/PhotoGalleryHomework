@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import LikeButton from '../LikeButton/LikeButton';
+import App from '../../App/App';
 //^ importing all necissary functions to load our gallery images//
 
 function GalleryItem({ images, getImages }) {
@@ -13,22 +14,22 @@ function GalleryItem({ images, getImages }) {
     // our handle flip function informs our if else that when the flip function
     //is interacted with it needs to be set to true or false depending on its 
     //current status
-
+console.log(images.id)
     if (flip === false) {
+        console.log(images.id)
         return (
             <div className="float-child" key={images.id}>
-                <p className="name">{images.name}</p>
                 <img src={images.path} alt={images.description} onClick={handleFlip} />
-                <p><LikeButton images={images} getImages={getImages} /></p>
+                <LikeButton images={images} getImages={getImages} />
                 <p>Likes {images.likes}</p>
             </div>
         )
     } else {
+        console.log(images.id)
         return (
             <div className="float-child" key={images.id}>
-                <p className='name'>{images.name}</p>
                 <img src={images.path} alt={images.description} onClick={handleFlip} />
-                <p><LikeButton images={images} getImages={getImages} /></p>
+                <LikeButton images={images} getImages={getImages} />
                 <p>Likes {images.likes}</p>
             </div>
         )

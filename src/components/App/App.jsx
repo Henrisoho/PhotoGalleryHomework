@@ -25,7 +25,7 @@ function App() {
     })
   }
   //^ get route to recieve images from our local file with post data//
-    
+    console.log(images)
     return (
       <div className="App">
         <Header />
@@ -36,7 +36,7 @@ function App() {
       </div>
     );
 //^ return function control the actual look and output of our data//
-
+ 
 }
 
 
