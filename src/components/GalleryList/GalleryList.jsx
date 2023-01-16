@@ -10,5 +10,5 @@ function GalleryList({ images, getImages }) {
         })
     )
   }
-  
+  //gallery list takes and loops through our photos to display them//
   export default GalleryList;
