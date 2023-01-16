@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import LikeButton from '../LikeButton/LikeButton';
 //^ importing all necissary functions to load our gallery images//
@@ -11,29 +10,29 @@ function GalleryItem({ images, getImages }) {
 //^use state allows us to recognize interaction with the flip function
 
     const handleFlip = () => {setFlip(!flip);}
-    //^our handle flip function informs our if else that when the flip function
+    // our handle flip function informs our if else that when the flip function
     //is interacted with it needs to be set to true or false depending on its 
     //current status
-    return(
-    flip === false ? (
+
+    if (flip === false) {
+        return (
             <div className="float-child" key={images.id}>
                 <p className="name">{images.name}</p>
                 <img src={images.path} alt={images.description} onClick={handleFlip} />
                 <p><LikeButton images={images} getImages={getImages} /></p>
                 <p>Likes {images.likes}</p>
             </div>
-        
-     ) : (
+        )
+    } else {
+        return (
             <div className="float-child" key={images.id}>
                 <p className='name'>{images.name}</p>
-                <img src={images.back} alt={images.description} onClick={handleFlip} />
+                <img src={images.path} alt={images.description} onClick={handleFlip} />
                 <p><LikeButton images={images} getImages={getImages} /></p>
                 <p>Likes {images.likes}</p>
             </div>
-     )
-    )
-    //return if else determines whether you see the description or not based on the
-    //status of the set flip boolean
+        )
+    }
 }
 
 export default GalleryItem;
