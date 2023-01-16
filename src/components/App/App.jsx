@@ -6,12 +6,15 @@ import GalleryList from '../GalleryList/GalleryList';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer'
 
-
+//Over Arching app function determins what react displays on the dom//
 function App() {
   const [images, setImages] = useState([]);
+  //^ use state allows us to manipulate the dom and make efficient changes//
+
   useEffect(() => {
     getImages();
 }, []);
+//^ use effect is like our on ready//
 
   const getImages = () => {
     axios.get('/gallery').then((response) => {
@@ -21,6 +24,8 @@ function App() {
       console.log('get route', error);
     })
   }
+  //^ get route to recieve images from our local file with post data//
+    
     return (
       <div className="App">
         <Header />
@@ -30,6 +35,9 @@ function App() {
         <Footer />
       </div>
     );
+//^ return function control the actual look and output of our data//
+
 }
+
 
 export default App;
