@@ -1,6 +1,7 @@
+import React from 'react';
 import axios from 'axios';
 
-function likeButton({ images, getImages }) {
+function LikeButton({ images, getImages }) {
     const handleLike = (event) => {
         event.preventDefault();
         console.log('clicked like');
@@ -26,4 +27,4 @@ function likeButton({ images, getImages }) {
     )
 }
 
-export default likeButton;
+export default LikeButton;

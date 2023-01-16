@@ -1,6 +1,6 @@
+import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
-import likeButton from '../LikeButton/LikeButton';
+import LikeButton from '../LikeButton/LikeButton';
 //^ importing all necissary functions to load our gallery images//
 
 function GalleryItem({ images, getImages }) {
@@ -19,7 +19,7 @@ function GalleryItem({ images, getImages }) {
             <div className="float-child" key={images.id}>
                 <p className="name">{images.name}</p>
                 <img src={images.path} alt={images.description} onClick={handleFlip} />
-                <p><likeButton images={images} getImages={getImages} /></p>
+                <p><LikeButton images={images} getImages={getImages} /></p>
                 <p>Likes {images.likes}</p>
             </div>
         
@@ -27,7 +27,7 @@ function GalleryItem({ images, getImages }) {
             <div className="float-child" key={images.id}>
                 <p className='name'>{images.name}</p>
                 <img src={images.back} alt={images.description} onClick={handleFlip} />
-                <p><likeButton images={images} getImages={getImages} /></p>
+                <p><LikeButton images={images} getImages={getImages} /></p>
                 <p>Likes {images.likes}</p>
             </div>
      )
