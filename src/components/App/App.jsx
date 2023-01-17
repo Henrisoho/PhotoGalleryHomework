@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import GalleryItem from '../GalleryItems/GalleryItems';
 import GalleryList from '../GalleryList/GalleryList';
 import AddImage from '../AddImage/AddImage';
-
+import Box from '@mui/material/Box';
 
 function App() {
   const [imageList, setImageList] = useState([]);
@@ -31,7 +31,9 @@ function App() {
     <div className="App">
       <Header />
       <AddImage getImage ={getImage}/>
+      
       <GalleryList images={imageList} getImage ={getImage}/>
+    
       <Footer/>
     </div>
   )

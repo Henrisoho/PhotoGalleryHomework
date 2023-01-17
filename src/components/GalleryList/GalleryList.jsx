@@ -11,7 +11,7 @@ function GalleryList({ images, getImage }) {
 // console.log(images.id)
     return (
         <Box p={2}>
-        <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
+        <ImageList sx={{ width: 500, height: 600 }} cols={3} rowHeight={200}>
       {images.map((item) => (
         <ImageListItem key={item.id}>
           <img
