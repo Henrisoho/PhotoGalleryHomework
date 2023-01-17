@@ -1,14 +1,13 @@
 import React from 'react';
-import GalleryItem from "../GalleryItem/GalleryItem.Jsx";
+import GalleryItem from '../GalleryItems/GalleryItems';
 
-function GalleryList({ images, getImages }) {
+
+function GalleryList({ images, getImage }) {
 // console.log(images.id)
     return (
-        images.map((images) => {
-            // console.log(images.id)
-            // console.log(images)
+        images.map((image) => {
             return (
-            <GalleryItem images={images} key={images.id} getImages={getImages}/>
+            <GalleryItem image = {image} key={image.id} getImage={getImage}/>
             )
         })
     )

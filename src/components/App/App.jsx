@@ -1,43 +1,39 @@
 import React from 'react';
 import axios from 'axios';
-import { useState, useEffect } from 'react';
 import './App.css';
-import GalleryList from '../GalleryList/GalleryList';
+import { useState, useEffect } from 'react';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer';
+import GalleryItem from '../GalleryItems/GalleryItems';
+import GalleryList from '../GalleryList/GalleryList';
 
-//Over Arching app function determins what react displays on the dom//
+
 function App() {
-  const [images, setImages] = useState([]);
-  //^ use state allows us to manipulate the dom and make efficient changes//
-
+  const [imageList, setImageList] = useState([]);
   useEffect(() => {
-    getImages();
-}, []);
-//^ use effect is like our on ready//
+    getImage();
+  }, []);
 
-  const getImages = () => {
+  const getImage = () => {
     axios.get('/gallery').then((response) => {
-      const images = response.data;
-      setImages(images);
+      console.log('This is the response from GET /gallery: ', response.data);
+      if(imageList != null){
+      setImageList(response.data);
+      }
     }).catch((error) => {
-      console.log('get route', error);
+      console.log('Error in GET /gallery: ', error);
     })
   }
-  //^ get route to recieve images from our local file with post data//
-    console.log(images)
-    return (
-      <div className="App">
-        <Header />
-        <div>
-          <GalleryList images={images} getImages={getImages}/>
-        </div>
-        <Footer />
-      </div>
-    );
-//^ return function control the actual look and output of our data//
- 
-}
 
+
+  return (
+    <div className="App">
+      <Header />
+      <GalleryList images={imageList} getImage ={getImage}/>
+      <Footer/>
+    </div>
+  )
+
+  }
 
 export default App;

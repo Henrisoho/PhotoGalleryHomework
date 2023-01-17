@@ -1,18 +1,17 @@
 import React from 'react';
 import axios from 'axios';
 
-function LikeButton({ images }) {
+function LikeButton({ image, getImage }) {
     const handleLike = (event) => {
         event.preventDefault();
-        console.log('clicked like');
-        putLike({ images });
+        putLike({ image, getImage });
     }
 
-    const putLike = ({ images, getImages }) => {
-        console.log('you liked images', images.id);
-        axios.put(`/gallery/like/${images.id}`)
+    const putLike = ({ image, getImage }) => {
+        console.log('you liked images', image.id);
+        axios.put(`/gallery/${image.id}`)
             .then(response => {
-                getImages();
+                getImage();
             })
             .catch(err => {
                 alert('Error in PUT route');
