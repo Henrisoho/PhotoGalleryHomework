@@ -6,6 +6,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import GalleryItem from '../GalleryItems/GalleryItems';
 import GalleryList from '../GalleryList/GalleryList';
+import AddImage from '../AddImage/AddImage';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <AddImage getImage ={getImage}/>
       <GalleryList images={imageList} getImage ={getImage}/>
       <Footer/>
     </div>

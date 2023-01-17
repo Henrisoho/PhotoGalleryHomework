@@ -22,6 +22,27 @@ router.get('/', (req, res) => {
 })
 
 
+// POST //
+
+router.post('/', (req,res) => {
+    const list = req.body
+    const sqlText = `INSERT INTO list ("path", "likes", "description")
+    VALUES ($1,$2,$3)`;
+    pool.query(sqlText, [list.path,list.likes,list.description])
+
+    .then((result) => {
+        console.log(`Added image to the database`, result);
+        res.sendStatus(201);
+    })
+    .catch((error) => {
+        console.log(`Error making database query ${sqlText}`, error);
+        res.sendStatus(500); // Good server always responds
+    })
+})
+
+
+
+// PUT //
 router.put('/:id', (req,res) => {
     console.log('In PUT route');
     console.log('req.params: ', req.params.id);

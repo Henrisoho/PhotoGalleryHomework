@@ -1,5 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import IconButton from '@mui/material/IconButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';;
+import Box from '@mui/material/Box';
+
 
 function LikeButton({ image, getImage }) {
     const handleLike = (event) => {
@@ -20,9 +24,18 @@ function LikeButton({ image, getImage }) {
     }
 
     return (
-        <button type="button" onClick={handleLike}>
-            Like
-        </button>
+        <Box>
+        <IconButton 
+        onClick={handleLike}
+        aria-label="like"
+        sx={{ 
+        width: "max-content", 
+        color: "#000", 
+        }}
+        >
+            <FavoriteIcon />
+        </IconButton>
+        </Box>
     )
 }
 
